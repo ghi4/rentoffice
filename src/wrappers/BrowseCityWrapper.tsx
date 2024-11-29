@@ -1,7 +1,13 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import CityCard from "../components/CityCard";
+import { useState } from "react";
+import { City } from "../types/type";
 
 export default function BrowseCityWrapper() {
+  const [cities, setCities] = useState<City[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
   return (
     <section id="Cities" className="flex flex-col gap-[30px] mt-[100px]">
       <div className="w-full max-w-[1130px] mx-auto flex items-center justify-between">
